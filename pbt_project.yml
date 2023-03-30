@@ -24,7 +24,67 @@ functions:
   udafs: {}
   expressions: {}
 subgraphs: {}
-sqlModels: {}
+sqlModels:
+  .prophecy/metadata/sqlmodels/stg_customers:
+    name: stg_customers
+    description: null
+    author: ashvjit+12@prophecy.io
+    files:
+    - .prophecy/ide/models/stg_customers.json
+    - jaffle_shopJzO4wqNU/models/staging/stg_customers.sql
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-03-30 09:05:35'
+    modifiedAt: '2023-03-30 09:05:35'
+  .prophecy/metadata/sqlmodels/stg_orders:
+    name: stg_orders
+    description: null
+    author: ashvjit+12@prophecy.io
+    files:
+    - .prophecy/ide/models/stg_orders.json
+    - jaffle_shopJzO4wqNU/models/staging/stg_orders.sql
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-03-30 09:05:35'
+    modifiedAt: '2023-03-30 09:05:35'
+  .prophecy/metadata/sqlmodels/stg_payments:
+    name: stg_payments
+    description: null
+    author: ashvjit+12@prophecy.io
+    files:
+    - .prophecy/ide/models/stg_payments.json
+    - jaffle_shopJzO4wqNU/models/staging/stg_payments.sql
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-03-30 09:05:35'
+    modifiedAt: '2023-03-30 09:05:35'
+  .prophecy/metadata/sqlmodels/orders:
+    name: orders
+    description: null
+    author: ashvjit+12@prophecy.io
+    files:
+    - .prophecy/ide/models/orders.json
+    - jaffle_shopJzO4wqNU/models/orders.sql
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-03-30 09:05:35'
+    modifiedAt: '2023-03-30 09:05:35'
+  .prophecy/metadata/sqlmodels/customers:
+    name: customers
+    description: null
+    author: ashvjit+12@prophecy.io
+    files:
+    - .prophecy/ide/models/customers.json
+    - jaffle_shopJzO4wqNU/models/customers.sql
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-03-30 09:05:35'
+    modifiedAt: '2023-03-30 09:05:35'
 sqlPipeline:
   name: sqlPipeline
   description: null
