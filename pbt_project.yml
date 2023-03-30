@@ -1,0 +1,36 @@
+name: jaffle_shop
+description: ''
+version: 0.0.1
+author: ashvjit+12@prophecy.io
+language: sql
+buildSystem: ''
+buildSystemDetails:
+  artefactID: jaffle_shop
+  parentArtefactID: ''
+  buildSystem: wheel
+  author: null
+  createdAt: '2023-03-30 08:17:21'
+  modifiedAt: '2023-03-30 08:17:21'
+pipelines: {}
+datasets: {}
+templates: {}
+jobs: {}
+functions:
+  author: null
+  createdAt: '2023-03-30 08:17:21'
+  modifiedAt: '2023-03-30 08:17:21'
+  gems: {}
+  udfs: {}
+  udafs: {}
+  expressions: {}
+subgraphs: {}
+sqlModels: {}
+sqlPipeline:
+  name: sqlPipeline
+  description: null
+  author: ashvjit+12@prophecy.io
+  createdAt: '2023-03-30 08:17:21'
+  modifiedAt: '2023-03-30 08:17:21'
+dependencies: '[]'
+projectDependencies: {}
+pipelineConfigurations: {}
