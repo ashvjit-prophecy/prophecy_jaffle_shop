@@ -1,1 +1,16 @@
-{"name":"jaffle_shop","fileSystem":{"type":"Folder","name":"","children":{},"path":""},"fabricId":"21","prophecyIDEFolder":{"name":"","children":{},"path":""},"frontEndLanguage":"sql"}
+{
+  "name" : "jaffle_shop",
+  "fileSystem" : {
+    "type" : "Folder",
+    "name" : "",
+    "children" : { },
+    "path" : ""
+  },
+  "fabricId" : "21",
+  "prophecyIDEFolder" : {
+    "name" : "",
+    "children" : { },
+    "path" : ""
+  },
+  "frontEndLanguage" : "sql"
+}

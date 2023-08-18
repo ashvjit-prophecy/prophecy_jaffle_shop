@@ -1,1 +1,164 @@
-{"id":"stg_payments","metainfo":{"label":"stg_payments","finalProcessID":"renamed##AXXb0Nhl","autoLayout":true,"staleState":"none","sourceSuggestions":{"sources":[]},"graphConfig":{"userDefinedConfig":{"vars":{}}}},"processes":{"source##qDzSgViO":{"id":"source##qDzSgViO","component":"Seed","metadata":{"label":"source","phase":0,"comment":"-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    "},"properties":{"table":{"name":"raw_payments","sourceType":"Seed"}},"ports":{"inputs":[],"outputs":[{"id":"F6R9qXGg","schema":{"providerType":"Databricks","fields":[{"name":"id","dataType":{"type":"Integer"}},{"name":"order_id","dataType":{"type":"Integer"}},{"name":"payment_method","dataType":{"type":"String"}},{"name":"amount","dataType":{"type":"Integer"}}]},"slug":"out"}],"isCustomOutputSchema":false}},"renamed##AXXb0Nhl":{"id":"renamed##AXXb0Nhl","component":"Reformat","metadata":{"label":"renamed","phase":0,"macroDependencies":[]},"properties":{"columnsSelector":[],"expressions":[{"expression":{"expression":"id"},"alias":"payment_id"},{"expression":{"expression":"order_id"}},{"expression":{"expression":"payment_method"}},{"expression":{"expression":"-- `amount` is currently stored in cents, so we convert it to dollars\namount / 100"},"alias":"amount"}]},"ports":{"inputs":[{"id":"o9Cz7y2E","schema":{"providerType":"Databricks","fields":[{"name":"id","dataType":{"type":"Integer"}},{"name":"order_id","dataType":{"type":"Integer"}},{"name":"payment_method","dataType":{"type":"String"}},{"name":"amount","dataType":{"type":"Integer"}}]},"slug":"source"}],"outputs":[{"id":"doO2Fykj","schema":{"providerType":"Databricks","fields":[{"name":"payment_id","dataType":{"type":"Integer"}},{"name":"order_id","dataType":{"type":"Integer"}},{"name":"payment_method","dataType":{"type":"String"}},{"name":"amount","dataType":{"type":"Double"}}]},"slug":"out"}],"isCustomOutputSchema":false}}},"connections":[{"id":"uI531mfy","source":"source##qDzSgViO","sourcePort":"F6R9qXGg","target":"renamed##AXXb0Nhl","targetPort":"o9Cz7y2E"}],"component":"Model"}
+{
+  "id" : "stg_payments",
+  "metainfo" : {
+    "label" : "stg_payments",
+    "finalProcessID" : "renamed##AXXb0Nhl",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    }
+  },
+  "processes" : {
+    "source##qDzSgViO" : {
+      "id" : "source##qDzSgViO",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "source",
+        "phase" : 0,
+        "comment" : "-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    "
+      },
+      "properties" : {
+        "table" : {
+          "name" : "raw_payments",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "F6R9qXGg",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "payment_method",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "renamed##AXXb0Nhl" : {
+      "id" : "renamed##AXXb0Nhl",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "renamed",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "id"
+          },
+          "alias" : "payment_id"
+        }, {
+          "expression" : {
+            "expression" : "order_id"
+          }
+        }, {
+          "expression" : {
+            "expression" : "payment_method"
+          }
+        }, {
+          "expression" : {
+            "expression" : "-- `amount` is currently stored in cents, so we convert it to dollars\namount / 100"
+          },
+          "alias" : "amount"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "o9Cz7y2E",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "payment_method",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "source"
+        } ],
+        "outputs" : [ {
+          "id" : "doO2Fykj",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "payment_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "payment_method",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "uI531mfy",
+    "source" : "source##qDzSgViO",
+    "sourcePort" : "F6R9qXGg",
+    "target" : "renamed##AXXb0Nhl",
+    "targetPort" : "o9Cz7y2E"
+  } ],
+  "component" : "Model"
+}

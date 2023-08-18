@@ -1,1 +1,164 @@
-{"id":"stg_orders","metainfo":{"label":"stg_orders","finalProcessID":"renamed##J5sfwTY6","autoLayout":true,"staleState":"none","sourceSuggestions":{"sources":[]},"graphConfig":{"userDefinedConfig":{"vars":{}}}},"processes":{"source##dleFsepU":{"id":"source##dleFsepU","component":"Seed","metadata":{"label":"source","phase":0,"comment":"-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    "},"properties":{"table":{"name":"raw_orders","sourceType":"Seed"}},"ports":{"inputs":[],"outputs":[{"id":"NPyNvKeQ","schema":{"providerType":"Databricks","fields":[{"name":"id","dataType":{"type":"Integer"}},{"name":"user_id","dataType":{"type":"Integer"}},{"name":"order_date","dataType":{"type":"Date"}},{"name":"status","dataType":{"type":"String"}}]},"slug":"out"}],"isCustomOutputSchema":false}},"renamed##J5sfwTY6":{"id":"renamed##J5sfwTY6","component":"Reformat","metadata":{"label":"renamed","phase":0,"macroDependencies":[]},"properties":{"columnsSelector":[],"expressions":[{"expression":{"expression":"id"},"alias":"order_id"},{"expression":{"expression":"user_id"},"alias":"customer_id"},{"expression":{"expression":"order_date"}},{"expression":{"expression":"status"}}]},"ports":{"inputs":[{"id":"n7Aba8Uc","schema":{"providerType":"Databricks","fields":[{"name":"id","dataType":{"type":"Integer"}},{"name":"user_id","dataType":{"type":"Integer"}},{"name":"order_date","dataType":{"type":"Date"}},{"name":"status","dataType":{"type":"String"}}]},"slug":"source"}],"outputs":[{"id":"FkHgeRC0","schema":{"providerType":"Databricks","fields":[{"name":"order_id","dataType":{"type":"Integer"}},{"name":"customer_id","dataType":{"type":"Integer"}},{"name":"order_date","dataType":{"type":"Date"}},{"name":"status","dataType":{"type":"String"}}]},"slug":"out"}],"isCustomOutputSchema":false}}},"connections":[{"id":"W1Lj9ftT","source":"source##dleFsepU","sourcePort":"NPyNvKeQ","target":"renamed##J5sfwTY6","targetPort":"n7Aba8Uc"}],"component":"Model"}
+{
+  "id" : "stg_orders",
+  "metainfo" : {
+    "label" : "stg_orders",
+    "finalProcessID" : "renamed##J5sfwTY6",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    }
+  },
+  "processes" : {
+    "source##dleFsepU" : {
+      "id" : "source##dleFsepU",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "source",
+        "phase" : 0,
+        "comment" : "-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    "
+      },
+      "properties" : {
+        "table" : {
+          "name" : "raw_orders",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "NPyNvKeQ",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "user_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "renamed##J5sfwTY6" : {
+      "id" : "renamed##J5sfwTY6",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "renamed",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "id"
+          },
+          "alias" : "order_id"
+        }, {
+          "expression" : {
+            "expression" : "user_id"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "order_date"
+          }
+        }, {
+          "expression" : {
+            "expression" : "status"
+          }
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "n7Aba8Uc",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "user_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "source"
+        } ],
+        "outputs" : [ {
+          "id" : "FkHgeRC0",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "W1Lj9ftT",
+    "source" : "source##dleFsepU",
+    "sourcePort" : "NPyNvKeQ",
+    "target" : "renamed##J5sfwTY6",
+    "targetPort" : "n7Aba8Uc"
+  } ],
+  "component" : "Model"
+}
