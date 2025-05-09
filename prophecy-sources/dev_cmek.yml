@@ -1,0 +1,18 @@
+---
+version: 2
+sources:
+- name: "dev_cmek"
+  database: "prophecy-databricks-qa"
+  schema: "dev_cmek"
+  tables:
+  - name: "raw_customers"
+    columns:
+    - name: "first_name"
+      dataType:
+        type: "String"
+    - name: "last_name"
+      dataType:
+        type: "String"
+    - name: "id"
+      dataType:
+        type: "Integer"

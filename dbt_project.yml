@@ -37,3 +37,18 @@ models:
     materialized: "table"
     staging:
       materialized: "view"
+
+# ==================
+# Seed Configs
+# ==================
+seeds: {}
+
+# ==================
+# Source Configs
+# ==================
+sources: {}
+
+# ============
+# Misc
+# ============
+dispatch: []

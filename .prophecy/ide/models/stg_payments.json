@@ -2,8 +2,7 @@
   "id" : "stg_payments",
   "metainfo" : {
     "label" : "stg_payments",
-    "finalProcessID" : "renamed##AXXb0Nhl",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -12,16 +11,35 @@
       "userDefinedConfig" : {
         "vars" : { }
       }
+    },
+    "version" : 3,
+    "properties" : {
+      "name" : "stg_payments",
+      "columns" : [ {
+        "name" : "payment_id",
+        "tests" : [ "unique", "not_null" ]
+      }, {
+        "name" : "payment_method",
+        "tests" : [ {
+          "accepted_values" : {
+            "values" : [ "\"credit_card\"", "\"coupon\"", "\"bank_transfer\"", "\"gift_card\"" ]
+          }
+        } ]
+      } ],
+      "providerType" : "bigquery"
     }
   },
   "processes" : {
-    "source##qDzSgViO" : {
-      "id" : "source##qDzSgViO",
+    "source##UK0Bz64S" : {
+      "id" : "source##UK0Bz64S",
       "component" : "Seed",
       "metadata" : {
         "label" : "source",
+        "x" : 20,
+        "y" : 20,
         "phase" : 0,
-        "comment" : "-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    "
+        "comment" : "-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    ",
+        "isLabelGrayed" : false
       },
       "properties" : {
         "table" : {
@@ -32,43 +50,24 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "F6R9qXGg",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "payment_method",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "amount",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            } ]
-          },
+          "id" : "r2V0dVUQ",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
-      }
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 0
     },
-    "renamed##AXXb0Nhl" : {
-      "id" : "renamed##AXXb0Nhl",
+    "renamed##gXFXi2jm" : {
+      "id" : "renamed##gXFXi2jm",
       "component" : "Reformat",
       "metadata" : {
         "label" : "renamed",
+        "x" : 220,
+        "y" : 20,
         "phase" : 0,
-        "macroDependencies" : [ ]
+        "macroDependencies" : [ ],
+        "isLabelGrayed" : false
       },
       "properties" : {
         "columnsSelector" : [ ],
@@ -76,89 +75,88 @@
           "expression" : {
             "expression" : "id"
           },
-          "alias" : "payment_id"
+          "alias" : "payment_id",
+          "_row_id" : "1757942074"
         }, {
           "expression" : {
             "expression" : "order_id"
-          }
+          },
+          "_row_id" : "1105768946"
         }, {
           "expression" : {
             "expression" : "payment_method"
-          }
+          },
+          "_row_id" : "152202831"
         }, {
           "expression" : {
             "expression" : "-- `amount` is currently stored in cents, so we convert it to dollars\namount / 100"
           },
-          "alias" : "amount"
+          "alias" : "amount",
+          "_row_id" : "2145994814"
         } ]
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "o9Cz7y2E",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "payment_method",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "amount",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            } ]
-          },
+          "id" : "MW9xhzQE",
           "slug" : "source"
         } ],
         "outputs" : [ {
-          "id" : "doO2Fykj",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "payment_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "payment_method",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "amount",
-              "dataType" : {
-                "type" : "Double"
-              }
-            } ]
-          },
+          "id" : "L7arsd25",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
-      }
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 1
+    },
+    "final##ghS0fhU9" : {
+      "id" : "final##ghS0fhU9",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "stg_payments",
+        "x" : 420,
+        "y" : 20,
+        "phase" : 0,
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT *\n\nFROM renamed\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "LDMkeuTf",
+          "slug" : "renamed"
+        } ],
+        "outputs" : [ {
+          "id" : "a7vEJPwA",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 2
     }
   },
   "connections" : [ {
-    "id" : "uI531mfy",
-    "source" : "source##qDzSgViO",
-    "sourcePort" : "F6R9qXGg",
-    "target" : "renamed##AXXb0Nhl",
-    "targetPort" : "o9Cz7y2E"
+    "id" : "q2SAB5ae",
+    "source" : "source##UK0Bz64S",
+    "sourcePort" : "r2V0dVUQ",
+    "target" : "renamed##gXFXi2jm",
+    "targetPort" : "MW9xhzQE"
+  }, {
+    "id" : "tIotwgfn",
+    "source" : "renamed##gXFXi2jm",
+    "sourcePort" : "L7arsd25",
+    "target" : "final##ghS0fhU9",
+    "targetPort" : "LDMkeuTf"
   } ],
   "component" : "Model"
 }

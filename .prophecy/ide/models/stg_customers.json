@@ -2,8 +2,7 @@
   "id" : "stg_customers",
   "metainfo" : {
     "label" : "stg_customers",
-    "finalProcessID" : "renamed##WUcYjWzN",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -12,16 +11,28 @@
       "userDefinedConfig" : {
         "vars" : { }
       }
+    },
+    "version" : 3,
+    "properties" : {
+      "name" : "stg_customers",
+      "columns" : [ {
+        "name" : "customer_id",
+        "tests" : [ "unique", "not_null" ]
+      } ],
+      "providerType" : "bigquery"
     }
   },
   "processes" : {
-    "source##ku9cfMWN" : {
-      "id" : "source##ku9cfMWN",
+    "source##M1JWrcuM" : {
+      "id" : "source##M1JWrcuM",
       "component" : "Seed",
       "metadata" : {
         "label" : "source",
+        "x" : 20,
+        "y" : 20,
         "phase" : 0,
-        "comment" : "-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    "
+        "comment" : "-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    ",
+        "isLabelGrayed" : false
       },
       "properties" : {
         "table" : {
@@ -32,38 +43,24 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "Fq5S0bg6",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
+          "id" : "Je3f9ySf",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
-      }
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 0
     },
-    "renamed##WUcYjWzN" : {
-      "id" : "renamed##WUcYjWzN",
+    "renamed##Om5rzDEX" : {
+      "id" : "renamed##Om5rzDEX",
       "component" : "Reformat",
       "metadata" : {
         "label" : "renamed",
+        "x" : 220,
+        "y" : 20,
         "phase" : 0,
-        "macroDependencies" : [ ]
+        "macroDependencies" : [ ],
+        "isLabelGrayed" : false
       },
       "properties" : {
         "columnsSelector" : [ ],
@@ -71,74 +68,82 @@
           "expression" : {
             "expression" : "id"
           },
-          "alias" : "customer_id"
+          "alias" : "customer_id",
+          "_row_id" : "2118013149"
         }, {
           "expression" : {
             "expression" : "first_name"
-          }
+          },
+          "_row_id" : "1040550337"
         }, {
           "expression" : {
             "expression" : "last_name"
-          }
+          },
+          "_row_id" : "1853548006"
         } ]
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "ZPjAjdOn",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
+          "id" : "GAlxQBaz",
           "slug" : "source"
         } ],
         "outputs" : [ {
-          "id" : "f9DkP9ZP",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
+          "id" : "KR6hju0B",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
-      }
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 1
+    },
+    "final##hUpy3pLg" : {
+      "id" : "final##hUpy3pLg",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "stg_customers",
+        "x" : 420,
+        "y" : 20,
+        "phase" : 0,
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT *\n\nFROM renamed\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "tWtq4crE",
+          "slug" : "renamed"
+        } ],
+        "outputs" : [ {
+          "id" : "xsCNrKwQ",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 2
     }
   },
   "connections" : [ {
-    "id" : "Fv9fsWiy",
-    "source" : "source##ku9cfMWN",
-    "sourcePort" : "Fq5S0bg6",
-    "target" : "renamed##WUcYjWzN",
-    "targetPort" : "ZPjAjdOn"
+    "id" : "jDpIoatP",
+    "source" : "source##M1JWrcuM",
+    "sourcePort" : "Je3f9ySf",
+    "target" : "renamed##Om5rzDEX",
+    "targetPort" : "GAlxQBaz"
+  }, {
+    "id" : "o3D3kKRc",
+    "source" : "renamed##Om5rzDEX",
+    "sourcePort" : "KR6hju0B",
+    "target" : "final##hUpy3pLg",
+    "targetPort" : "tWtq4crE"
   } ],
   "component" : "Model"
 }
